@@ -45,9 +45,6 @@ public class StreamingJob1 extends Thread {
 
         Dataset aggDF = sparkSession.sql("select caseId from tmptable where fieldName = 'ActionClassification' and valueStr = '21' group by caseId");
 
-        // df = df.filter("fieldName = 'ActionClassification'").groupBy("caseId").max("ts") ;
-
-
         StreamingQuery query = aggDF.writeStream()
                 .outputMode("complete")
                 .format("console")
