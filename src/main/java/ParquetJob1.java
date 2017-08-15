@@ -5,7 +5,6 @@ import org.apache.spark.sql.SparkSession;
 
 public class ParquetJob1 extends Thread {
 
-    SparkDaemonService instance;
     static Logger logger = Logger.getLogger(ParquetJob1.class.getName());
 
     public ParquetJob1() {
