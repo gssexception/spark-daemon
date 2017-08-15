@@ -33,7 +33,7 @@ public class ParquetJob1 extends Thread {
                 .getOrCreate();
 
         // spark.read().load("/user/cloudera/parq").createOrReplaceTempView("tmp");
-        Dataset data = spark.sql("select count(*) as mycount aggregates");
+        Dataset data = spark.sql("select count(*) as mycount from aggregates");
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
