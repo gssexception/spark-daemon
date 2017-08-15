@@ -1,7 +1,6 @@
 import org.apache.log4j.Logger;
 import java.util.concurrent.TimeUnit;
 
-
 public class SparkDaemon {
     static Logger logger = Logger.getLogger(SparkDaemon.class.getName());
     private static org.apache.log4j.Logger log = Logger.getLogger(SparkDaemon.class);

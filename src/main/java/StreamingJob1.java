@@ -10,6 +10,7 @@ public class StreamingJob1 extends Thread {
     static Logger logger = Logger.getLogger(StreamingJob1.class.getName());
 
     public StreamingJob1() {
+
     }
 
     public void run() {
