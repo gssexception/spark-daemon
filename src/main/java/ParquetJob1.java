@@ -13,7 +13,7 @@ public class ParquetJob1 extends Thread {
     public void run() {
         logger.info("Spark (job 2) parquet reader started.");
         try {
-            Thread.sleep(30 * 1000);
+            Thread.sleep(200 * 1000);
             sparkReader();
         } catch(Exception e) {
             logger.error("Warning: exception: "+e.getMessage());
