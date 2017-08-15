@@ -34,7 +34,7 @@ public class ParquetJob1 extends Thread {
                 .getOrCreate();
 
         // spark.read().load("/user/cloudera/parq").createOrReplaceTempView("tmp");
-        Dataset data = spark.sql("select count(*) from tmp limit 50");
+        Dataset data = spark.sql("select count(*) aggregates");
         data.show(20);
         logger.info("Spark reader process finished");
 

@@ -97,7 +97,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>NasDaemon</mainClass>
+                            <mainClass>SparkDaemon</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

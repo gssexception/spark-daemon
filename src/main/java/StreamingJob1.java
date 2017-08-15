@@ -63,8 +63,6 @@ public class StreamingJob1 extends Thread {
 
         query.awaitTermination();
 
-        Dataset data = sparkSession.sql("select count(*) from tmp ");
-        data.show(20);
         logger.info("Spark streaming process finished");
 
     }
