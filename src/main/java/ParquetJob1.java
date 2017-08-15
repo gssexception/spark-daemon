@@ -12,7 +12,7 @@ public class ParquetJob1 extends Thread {
     }
 
     public void run() {
-        logger.info("Spark parquet reader.");
+        logger.info("Spark (job 2) parquet reader started.");
         try {
             Thread.sleep(120 * 1000);
             sparkReader();
@@ -24,7 +24,7 @@ public class ParquetJob1 extends Thread {
     }
 
     private void sparkReader() throws Exception {
-        logger.info("Spark reading process started");
+        logger.info("Spark (job 2) reading process started");
 
 
         SparkSession spark = SparkSession
@@ -34,9 +34,18 @@ public class ParquetJob1 extends Thread {
                 .getOrCreate();
 
         // spark.read().load("/user/cloudera/parq").createOrReplaceTempView("tmp");
-        Dataset data = spark.sql("select count(*) aggregates");
-        data.show(20);
-        logger.info("Spark reader process finished");
+        Dataset data = spark.sql("select count(*) as mycount aggregates");
+        logger.info("**************** job2 ********************");
+        logger.info("**************** job2 ********************");
+        logger.info("**************** job2 ********************");
+        logger.info("**************** job2 ********************");
+        logger.info("**************** job2 ********************");
+        logger.info(data.toString());
+        logger.info("**************** job2 ********************");
+        logger.info("**************** job2 ********************");
+        logger.info("**************** job2 ********************");
+
+        logger.info("Spark (job 2) reader process finished");
 
     }
 }
