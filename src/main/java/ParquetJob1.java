@@ -1,5 +1,6 @@
 import org.apache.log4j.Logger;
 import org.apache.spark.sql.Dataset;
+import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 
@@ -33,13 +34,20 @@ public class ParquetJob1 extends Thread {
                 .getOrCreate();
 
         // spark.read().load("/user/cloudera/parq").createOrReplaceTempView("tmp");
-        Dataset data = spark.sql("select count(*) as mycount from aggregates");
+        Dataset<Row> data = spark.sql("select count(*) as mycount from tmptable");
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
-        logger.info(data.toString());
+        Row[] dataRows = data.collect();
+        for (Row row : dataRows) {
+            System.out.println("Row : "+row);
+            for (int i = 0; i < row.length(); i++) {
+                System.out.println("Row Data : "+row.get(i));
+            }
+        }
+        logger.info(data.  toString());
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
