@@ -1,11 +1,11 @@
-# spark2-submit --class SparkDaemon --master yarn --deploy-mode client  --num-executors 10 --executor-memory 1G --executor-cores 1 --driver-memory 1G target/spark-daemon-1.0-SNAPSHOT-jar-with-dependencies.jar
+# spark2-submit --class com.gss.mainController.SparkDaemon --master yarn --deploy-mode client  --num-executors 10 --executor-memory 1G --executor-cores 1 --driver-memory 1G target/spark-daemon-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 
-[cloudera@quickstart spark-daemon]$ spark2-submit --class SparkDaemon --master yarn --deploy-mode client  --num-executors 10 --executor-memory 1G --executor-cores 1 --driver-memory 1G target/spark-daemon-1.0-SNAPSHOT-jar-with-dependencies.jar
-17/08/15 12:47:40 INFO StreamingJob1: Spark streaming process deployed
-17/08/15 12:47:40 INFO ParquetJob1: Spark (job 2) parquet reader started.
-17/08/15 12:47:40 INFO SparkDaemon: Spark daemon started.
-17/08/15 12:47:40 INFO StreamingJob1: Spark streaming process started
+[cloudera@quickstart spark-daemon]$ spark2-submit --class com.gss.mainController.SparkDaemon --master yarn --deploy-mode client  --num-executors 10 --executor-memory 1G --executor-cores 1 --driver-memory 1G target/spark-daemon-1.0-SNAPSHOT-jar-with-dependencies.jar
+17/08/15 12:47:40 INFO com.gss.mainController.StreamingJob1: Spark streaming process deployed
+17/08/15 12:47:40 INFO com.gss.mainController.ParquetJob1: Spark (job 2) parquet reader started.
+17/08/15 12:47:40 INFO com.gss.mainController.SparkDaemon: Spark daemon started.
+17/08/15 12:47:40 INFO com.gss.mainController.StreamingJob1: Spark streaming process started
 17/08/15 12:47:40 INFO spark.SparkContext: Running Spark version 2.1.0.cloudera1
 17/08/15 12:47:41 WARN util.Utils: Your hostname, quickstart.cloudera resolves to a loopback address: 127.0.0.1; using 192.168.1.116 instead (on interface eth3)
 17/08/15 12:47:41 WARN util.Utils: Set SPARK_LOCAL_IP if you need to bind to another address
@@ -128,7 +128,7 @@
 17/08/15 12:47:59 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (192.168.1.116:35776) with ID 5
 17/08/15 12:47:59 INFO spark.ExecutorAllocationManager: New executor 5 has registered (new total is 6)
 17/08/15 12:47:59 INFO storage.BlockManagerMasterEndpoint: Registering block manager quickstart.cloudera:44013 with 366.3 MB RAM, BlockManagerId(5, quickstart.cloudera, 44013, None)
-17/08/15 12:48:10 INFO ParquetJob1: Spark (job 2) reading process started
+17/08/15 12:48:10 INFO com.gss.mainController.ParquetJob1: Spark (job 2) reading process started
 17/08/15 12:48:12 INFO cluster.YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after waiting maxRegisteredResourcesWaitingTime: 30000(ms)
 17/08/15 12:48:13 INFO internal.SharedState: spark.sql.warehouse.dir is not set, but hive.metastore.warehouse.dir is set. Setting spark.sql.warehouse.dir to the value of hive.metastore.warehouse.dir ('/user/hive/warehouse').
 17/08/15 12:48:13 INFO internal.SharedState: Warehouse path is '/user/hive/warehouse'.
@@ -147,29 +147,29 @@
 17/08/15 12:48:15 INFO session.SessionState: Created HDFS directory: /tmp/hive/cloudera/556d2ce1-a1fe-4881-a6c5-d58c1e07f4f4/_tmp_space.db
 17/08/15 12:48:15 INFO session.SessionState: No Tez session required at this point. hive.execution.engine=mr.
 17/08/15 12:48:15 INFO client.HiveClientImpl: Warehouse location for Hive client (version 1.1.0) is /user/hive/warehouse
-17/08/15 12:48:15 INFO StreamingJob1: Spark sparkSession executed
+17/08/15 12:48:15 INFO com.gss.mainController.StreamingJob1: Spark sparkSession executed
 17/08/15 12:48:15 WARN sql.SparkSession$Builder: Using an existing SparkSession; some configuration may not take effect.
 17/08/15 12:48:15 INFO execution.SparkSqlParser: Parsing command: select count(*) as mycount from aggregates
-17/08/15 12:48:16 INFO spark.SparkContext: Starting job: parquet at StreamingJob1.java:41
-17/08/15 12:48:16 INFO scheduler.DAGScheduler: Got job 0 (parquet at StreamingJob1.java:41) with 1 output partitions
-17/08/15 12:48:16 INFO scheduler.DAGScheduler: Final stage: ResultStage 0 (parquet at StreamingJob1.java:41)
+17/08/15 12:48:16 INFO spark.SparkContext: Starting job: parquet at com.gss.mainController.StreamingJob1.java:41
+17/08/15 12:48:16 INFO scheduler.DAGScheduler: Got job 0 (parquet at com.gss.mainController.StreamingJob1.java:41) with 1 output partitions
+17/08/15 12:48:16 INFO scheduler.DAGScheduler: Final stage: ResultStage 0 (parquet at com.gss.mainController.StreamingJob1.java:41)
 17/08/15 12:48:16 INFO scheduler.DAGScheduler: Parents of final stage: List()
 17/08/15 12:48:16 INFO scheduler.DAGScheduler: Missing parents: List()
-17/08/15 12:48:16 INFO scheduler.DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[1] at parquet at StreamingJob1.java:41), which has no missing parents
-17/08/15 12:48:16 ERROR ParquetJob1: Warning: exception: Table or view not found: aggregates; line 1 pos 32
-17/08/15 12:48:16 ERROR ParquetJob1: org.apache.spark.sql.AnalysisException: Table or view not found: aggregates; line 1 pos 32
+17/08/15 12:48:16 INFO scheduler.DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[1] at parquet at com.gss.mainController.StreamingJob1.java:41), which has no missing parents
+17/08/15 12:48:16 ERROR com.gss.mainController.ParquetJob1: Warning: exception: Table or view not found: aggregates; line 1 pos 32
+17/08/15 12:48:16 ERROR com.gss.mainController.ParquetJob1: org.apache.spark.sql.AnalysisException: Table or view not found: aggregates; line 1 pos 32
 17/08/15 12:48:17 INFO memory.MemoryStore: Block broadcast_0 stored as values in memory (estimated size 82.5 KB, free 366.2 MB)
 17/08/15 12:48:17 INFO memory.MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 30.2 KB, free 366.2 MB)
 17/08/15 12:48:17 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on 192.168.1.116:60495 (size: 30.2 KB, free: 366.3 MB)
 17/08/15 12:48:17 INFO spark.SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:996
-17/08/15 12:48:17 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[1] at parquet at StreamingJob1.java:41)
+17/08/15 12:48:17 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[1] at parquet at com.gss.mainController.StreamingJob1.java:41)
 17/08/15 12:48:17 INFO cluster.YarnScheduler: Adding task set 0.0 with 1 tasks
 17/08/15 12:48:17 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, quickstart.cloudera, executor 5, partition 0, PROCESS_LOCAL, 6065 bytes)
 17/08/15 12:48:18 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on quickstart.cloudera:44013 (size: 30.2 KB, free: 366.3 MB)
 17/08/15 12:48:20 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 2771 ms on quickstart.cloudera (executor 5) (1/1)
 17/08/15 12:48:20 INFO cluster.YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool
-17/08/15 12:48:20 INFO scheduler.DAGScheduler: ResultStage 0 (parquet at StreamingJob1.java:41) finished in 2.784 s
-17/08/15 12:48:20 INFO scheduler.DAGScheduler: Job 0 finished: parquet at StreamingJob1.java:41, took 3.650966 s
+17/08/15 12:48:20 INFO scheduler.DAGScheduler: ResultStage 0 (parquet at com.gss.mainController.StreamingJob1.java:41) finished in 2.784 s
+17/08/15 12:48:20 INFO scheduler.DAGScheduler: Job 0 finished: parquet at com.gss.mainController.StreamingJob1.java:41, took 3.650966 s
 17/08/15 12:48:20 INFO execution.SparkSqlParser: Parsing command: tmptable
 17/08/15 12:48:20 INFO execution.SparkSqlParser: Parsing command: select caseId from tmptable where fieldName = 'ActionClassification' and valueStr = '21' group by caseId
 17/08/15 12:48:20 INFO state.StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
@@ -213,48 +213,48 @@
 17/08/15 12:48:21 INFO memory.MemoryStore: Block broadcast_1 stored as values in memory (estimated size 323.5 KB, free 365.7 MB)
 17/08/15 12:48:21 INFO memory.MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 29.2 KB, free 365.6 MB)
 17/08/15 12:48:21 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on 192.168.1.116:60495 (size: 29.2 KB, free: 366.3 MB)
-17/08/15 12:48:21 INFO spark.SparkContext: Created broadcast 2 from start at StreamingJob1.java:51
+17/08/15 12:48:21 INFO spark.SparkContext: Created broadcast 2 from start at com.gss.mainController.StreamingJob1.java:51
 17/08/15 12:48:21 INFO memory.MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 29.2 KB, free 365.6 MB)
 17/08/15 12:48:21 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.1.116:60495 (size: 29.2 KB, free: 366.2 MB)
-17/08/15 12:48:21 INFO spark.SparkContext: Created broadcast 1 from start at StreamingJob1.java:57
+17/08/15 12:48:21 INFO spark.SparkContext: Created broadcast 1 from start at com.gss.mainController.StreamingJob1.java:57
 17/08/15 12:48:22 INFO execution.FileSourceScanExec: Planning scan with bin packing, max size: 14477085 bytes, open cost is considered as scanning 4194304 bytes.
 17/08/15 12:48:22 INFO execution.FileSourceScanExec: Planning scan with bin packing, max size: 14477085 bytes, open cost is considered as scanning 4194304 bytes.
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_3 stored as values in memory (estimated size 321.2 KB, free 365.3 MB)
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_4 stored as values in memory (estimated size 321.2 KB, free 365.0 MB)
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 28.8 KB, free 365.0 MB)
 17/08/15 12:48:22 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on 192.168.1.116:60495 (size: 28.8 KB, free: 366.2 MB)
-17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 3 from start at StreamingJob1.java:57
+17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 3 from start at com.gss.mainController.StreamingJob1.java:57
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 28.8 KB, free 364.9 MB)
 17/08/15 12:48:22 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on 192.168.1.116:60495 (size: 28.8 KB, free: 366.2 MB)
-17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 4 from start at StreamingJob1.java:51
+17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 4 from start at com.gss.mainController.StreamingJob1.java:51
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_6 stored as values in memory (estimated size 321.2 KB, free 364.6 MB)
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_5 stored as values in memory (estimated size 321.2 KB, free 364.3 MB)
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 28.8 KB, free 364.3 MB)
 17/08/15 12:48:22 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on 192.168.1.116:60495 (size: 28.8 KB, free: 366.2 MB)
-17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 5 from start at StreamingJob1.java:51
-17/08/15 12:48:22 INFO spark.SparkContext: Starting job: start at StreamingJob1.java:51
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Registering RDD 9 (start at StreamingJob1.java:51)
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Got job 1 (start at StreamingJob1.java:51) with 200 output partitions
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Final stage: ResultStage 2 (start at StreamingJob1.java:51)
+17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 5 from start at com.gss.mainController.StreamingJob1.java:51
+17/08/15 12:48:22 INFO spark.SparkContext: Starting job: start at com.gss.mainController.StreamingJob1.java:51
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Registering RDD 9 (start at com.gss.mainController.StreamingJob1.java:51)
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Got job 1 (start at com.gss.mainController.StreamingJob1.java:51) with 200 output partitions
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Final stage: ResultStage 2 (start at com.gss.mainController.StreamingJob1.java:51)
 17/08/15 12:48:22 INFO scheduler.DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
 17/08/15 12:48:22 INFO scheduler.DAGScheduler: Missing parents: List(ShuffleMapStage 1)
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 28.8 KB, free 364.2 MB)
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[9] at start at StreamingJob1.java:51), which has no missing parents
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[9] at start at com.gss.mainController.StreamingJob1.java:51), which has no missing parents
 17/08/15 12:48:22 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on 192.168.1.116:60495 (size: 28.8 KB, free: 366.1 MB)
-17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 6 from start at StreamingJob1.java:57
+17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 6 from start at com.gss.mainController.StreamingJob1.java:57
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_7 stored as values in memory (estimated size 21.4 KB, free 364.2 MB)
-17/08/15 12:48:22 INFO spark.SparkContext: Starting job: start at StreamingJob1.java:57
+17/08/15 12:48:22 INFO spark.SparkContext: Starting job: start at com.gss.mainController.StreamingJob1.java:57
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 9.4 KB, free 364.2 MB)
 17/08/15 12:48:22 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on 192.168.1.116:60495 (size: 9.4 KB, free: 366.1 MB)
 17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:996
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[9] at start at StreamingJob1.java:51)
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[9] at start at com.gss.mainController.StreamingJob1.java:51)
 17/08/15 12:48:22 INFO cluster.YarnScheduler: Adding task set 1.0 with 6 tasks
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Registering RDD 8 (start at StreamingJob1.java:57)
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Got job 2 (start at StreamingJob1.java:57) with 200 output partitions
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Final stage: ResultStage 4 (start at StreamingJob1.java:57)
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Registering RDD 8 (start at com.gss.mainController.StreamingJob1.java:57)
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Got job 2 (start at com.gss.mainController.StreamingJob1.java:57) with 200 output partitions
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Final stage: ResultStage 4 (start at com.gss.mainController.StreamingJob1.java:57)
 17/08/15 12:48:22 INFO scheduler.DAGScheduler: Parents of final stage: List(ShuffleMapStage 3)
 17/08/15 12:48:22 INFO scheduler.DAGScheduler: Missing parents: List(ShuffleMapStage 3)
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 3 (MapPartitionsRDD[8] at start at StreamingJob1.java:57), which has no missing parents
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Submitting ShuffleMapStage 3 (MapPartitionsRDD[8] at start at com.gss.mainController.StreamingJob1.java:57), which has no missing parents
 17/08/15 12:48:22 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, quickstart.cloudera, executor 3, partition 0, NODE_LOCAL, 6923 bytes)
 17/08/15 12:48:22 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 1.0 (TID 2, quickstart.cloudera, executor 1, partition 1, NODE_LOCAL, 6923 bytes)
 17/08/15 12:48:22 INFO scheduler.TaskSetManager: Starting task 2.0 in stage 1.0 (TID 3, quickstart.cloudera, executor 6, partition 2, NODE_LOCAL, 6923 bytes)
@@ -265,7 +265,7 @@
 17/08/15 12:48:22 INFO memory.MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 9.4 KB, free 364.2 MB)
 17/08/15 12:48:22 INFO storage.BlockManagerInfo: Added broadcast_8_piece0 in memory on 192.168.1.116:60495 (size: 9.4 KB, free: 366.1 MB)
 17/08/15 12:48:22 INFO spark.SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:996
-17/08/15 12:48:22 INFO scheduler.DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 3 (MapPartitionsRDD[8] at start at StreamingJob1.java:57)
+17/08/15 12:48:22 INFO scheduler.DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 3 (MapPartitionsRDD[8] at start at com.gss.mainController.StreamingJob1.java:57)
 17/08/15 12:48:22 INFO cluster.YarnScheduler: Adding task set 3.0 with 6 tasks
 17/08/15 12:48:22 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on quickstart.cloudera:44013 (size: 9.4 KB, free: 366.3 MB)
 17/08/15 12:48:23 INFO spark.ExecutorAllocationManager: Requesting 7 new executors because tasks are backlogged (new desired total will be 7)
@@ -304,12 +304,12 @@
 17/08/15 12:48:32 INFO scheduler.TaskSetManager: Finished task 5.0 in stage 3.0 (TID 12) in 88 ms on quickstart.cloudera (executor 4) (5/6)
 17/08/15 12:48:35 INFO scheduler.TaskSetManager: Finished task 2.0 in stage 3.0 (TID 9) in 9944 ms on quickstart.cloudera (executor 5) (6/6)
 17/08/15 12:48:35 INFO cluster.YarnScheduler: Removed TaskSet 3.0, whose tasks have all completed, from pool
-17/08/15 12:48:35 INFO scheduler.DAGScheduler: ShuffleMapStage 3 (start at StreamingJob1.java:57) finished in 12.691 s
+17/08/15 12:48:35 INFO scheduler.DAGScheduler: ShuffleMapStage 3 (start at com.gss.mainController.StreamingJob1.java:57) finished in 12.691 s
 17/08/15 12:48:35 INFO scheduler.DAGScheduler: looking for newly runnable stages
 17/08/15 12:48:35 INFO scheduler.DAGScheduler: running: Set(ShuffleMapStage 1)
 17/08/15 12:48:35 INFO scheduler.DAGScheduler: waiting: Set(ResultStage 2, ResultStage 4)
 17/08/15 12:48:35 INFO scheduler.DAGScheduler: failed: Set()
-17/08/15 12:48:35 INFO scheduler.DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[23] at start at StreamingJob1.java:57), which has no missing parents
+17/08/15 12:48:35 INFO scheduler.DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[23] at start at com.gss.mainController.StreamingJob1.java:57), which has no missing parents
 17/08/15 12:48:35 INFO spark.ContextCleaner: Cleaned accumulator 48
 17/08/15 12:48:35 INFO spark.ContextCleaner: Cleaned accumulator 50
 17/08/15 12:48:35 INFO spark.ContextCleaner: Cleaned accumulator 49
@@ -317,7 +317,7 @@
 17/08/15 12:48:35 INFO memory.MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 12.5 KB, free 364.1 MB)
 17/08/15 12:48:35 INFO storage.BlockManagerInfo: Added broadcast_9_piece0 in memory on 192.168.1.116:60495 (size: 12.5 KB, free: 366.1 MB)
 17/08/15 12:48:35 INFO spark.SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:996
-17/08/15 12:48:35 INFO scheduler.DAGScheduler: Submitting 200 missing tasks from ResultStage 4 (MapPartitionsRDD[23] at start at StreamingJob1.java:57)
+17/08/15 12:48:35 INFO scheduler.DAGScheduler: Submitting 200 missing tasks from ResultStage 4 (MapPartitionsRDD[23] at start at com.gss.mainController.StreamingJob1.java:57)
 17/08/15 12:48:35 INFO cluster.YarnScheduler: Adding task set 4.0 with 200 tasks
 17/08/15 12:48:35 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 4.0 (TID 13, quickstart.cloudera, executor 1, partition 0, PROCESS_LOCAL, 6230 bytes)
 17/08/15 12:48:35 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 4.0 (TID 14, quickstart.cloudera, executor 4, partition 1, PROCESS_LOCAL, 6230 bytes)
@@ -361,19 +361,19 @@
 17/08/15 12:48:39 INFO scheduler.TaskSetManager: Starting task 10.0 in stage 4.0 (TID 23, quickstart.cloudera, executor 6, partition 10, PROCESS_LOCAL, 6230 bytes)
 17/08/15 12:48:39 INFO scheduler.TaskSetManager: Finished task 2.0 in stage 1.0 (TID 3) in 16933 ms on quickstart.cloudera (executor 6) (6/6)
 17/08/15 12:48:39 INFO cluster.YarnScheduler: Removed TaskSet 1.0, whose tasks have all completed, from pool
-17/08/15 12:48:39 INFO scheduler.DAGScheduler: ShuffleMapStage 1 (start at StreamingJob1.java:51) finished in 16.958 s
+17/08/15 12:48:39 INFO scheduler.DAGScheduler: ShuffleMapStage 1 (start at com.gss.mainController.StreamingJob1.java:51) finished in 16.958 s
 17/08/15 12:48:39 INFO scheduler.DAGScheduler: looking for newly runnable stages
 17/08/15 12:48:39 INFO scheduler.DAGScheduler: running: Set(ResultStage 4)
 17/08/15 12:48:39 INFO scheduler.DAGScheduler: waiting: Set(ResultStage 2)
 17/08/15 12:48:39 INFO scheduler.DAGScheduler: failed: Set()
-17/08/15 12:48:39 INFO scheduler.DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[21] at start at StreamingJob1.java:51), which has no missing parents
+17/08/15 12:48:39 INFO scheduler.DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[21] at start at com.gss.mainController.StreamingJob1.java:51), which has no missing parents
 17/08/15 12:48:39 INFO spark.ExecutorAllocationManager: Requesting 4 new executors because tasks are backlogged (new desired total will be 14)
 17/08/15 12:48:39 INFO storage.BlockManagerInfo: Added broadcast_9_piece0 in memory on quickstart.cloudera:50242 (size: 12.5 KB, free: 366.3 MB)
 17/08/15 12:48:39 INFO memory.MemoryStore: Block broadcast_10 stored as values in memory (estimated size 35.1 KB, free 364.1 MB)
 17/08/15 12:48:39 INFO memory.MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 12.5 KB, free 364.1 MB)
 17/08/15 12:48:39 INFO storage.BlockManagerInfo: Added broadcast_10_piece0 in memory on 192.168.1.116:60495 (size: 12.5 KB, free: 366.1 MB)
 17/08/15 12:48:39 INFO spark.SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:996
-17/08/15 12:48:39 INFO scheduler.DAGScheduler: Submitting 200 missing tasks from ResultStage 2 (MapPartitionsRDD[21] at start at StreamingJob1.java:51)
+17/08/15 12:48:39 INFO scheduler.DAGScheduler: Submitting 200 missing tasks from ResultStage 2 (MapPartitionsRDD[21] at start at com.gss.mainController.StreamingJob1.java:51)
 17/08/15 12:48:39 INFO cluster.YarnScheduler: Adding task set 2.0 with 200 tasks
 17/08/15 12:48:39 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on quickstart.cloudera:50242 (size: 28.8 KB, free: 366.2 MB)
 17/08/15 12:48:39 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 2.0 (TID 24, quickstart.cloudera, executor 5, partition 0, PROCESS_LOCAL, 6230 bytes)
@@ -840,8 +840,8 @@
 17/08/15 12:49:43 INFO scheduler.TaskSetManager: Finished task 199.0 in stage 2.0 (TID 223) in 617 ms on quickstart.cloudera (executor 1) (200/200)
 17/08/15 12:49:43 INFO cluster.YarnScheduler: Removed TaskSet 2.0, whose tasks have all completed, from pool
 17/08/15 12:49:43 INFO scheduler.TaskSetManager: Finished task 19.0 in stage 4.0 (TID 232) in 151 ms on quickstart.cloudera (executor 5) (17/200)
-17/08/15 12:49:44 INFO scheduler.DAGScheduler: ResultStage 2 (start at StreamingJob1.java:51) finished in 64.459 s
-17/08/15 12:49:44 INFO scheduler.DAGScheduler: Job 1 finished: start at StreamingJob1.java:51, took 81.597098 s
+17/08/15 12:49:44 INFO scheduler.DAGScheduler: ResultStage 2 (start at com.gss.mainController.StreamingJob1.java:51) finished in 64.459 s
+17/08/15 12:49:44 INFO scheduler.DAGScheduler: Job 1 finished: start at com.gss.mainController.StreamingJob1.java:51, took 81.597098 s
 17/08/15 12:49:44 INFO spark.MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 192.168.1.116:35764
 17/08/15 12:49:44 INFO scheduler.TaskSetManager: Starting task 23.0 in stage 4.0 (TID 236, quickstart.cloudera, executor 3, partition 23, PROCESS_LOCAL, 6230 bytes)
 17/08/15 12:49:44 INFO scheduler.TaskSetManager: Finished task 11.0 in stage 4.0 (TID 224) in 624 ms on quickstart.cloudera (executor 3) (18/200)
@@ -857,17 +857,17 @@
 17/08/15 12:49:44 INFO scheduler.TaskSetManager: Finished task 23.0 in stage 4.0 (TID 236) in 267 ms on quickstart.cloudera (executor 3) (23/200)
 17/08/15 12:49:44 INFO scheduler.TaskSetManager: Starting task 29.0 in stage 4.0 (TID 242, quickstart.cloudera, executor 5, partition 29, PROCESS_LOCAL, 6230 bytes)
 17/08/15 12:49:44 INFO scheduler.TaskSetManager: Finished task 24.0 in stage 4.0 (TID 237) in 212 ms on quickstart.cloudera (executor 5) (24/200)
-17/08/15 12:49:44 INFO spark.SparkContext: Starting job: start at StreamingJob1.java:51
-17/08/15 12:49:44 INFO scheduler.DAGScheduler: Got job 3 (start at StreamingJob1.java:51) with 1 output partitions
-17/08/15 12:49:44 INFO scheduler.DAGScheduler: Final stage: ResultStage 5 (start at StreamingJob1.java:51)
+17/08/15 12:49:44 INFO spark.SparkContext: Starting job: start at com.gss.mainController.StreamingJob1.java:51
+17/08/15 12:49:44 INFO scheduler.DAGScheduler: Got job 3 (start at com.gss.mainController.StreamingJob1.java:51) with 1 output partitions
+17/08/15 12:49:44 INFO scheduler.DAGScheduler: Final stage: ResultStage 5 (start at com.gss.mainController.StreamingJob1.java:51)
 17/08/15 12:49:44 INFO scheduler.DAGScheduler: Parents of final stage: List()
 17/08/15 12:49:44 INFO scheduler.DAGScheduler: Missing parents: List()
-17/08/15 12:49:44 INFO scheduler.DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[27] at start at StreamingJob1.java:51), which has no missing parents
+17/08/15 12:49:44 INFO scheduler.DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[27] at start at com.gss.mainController.StreamingJob1.java:51), which has no missing parents
 17/08/15 12:49:44 INFO memory.MemoryStore: Block broadcast_11 stored as values in memory (estimated size 7.8 KB, free 364.1 MB)
 17/08/15 12:49:44 INFO memory.MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 4.3 KB, free 364.1 MB)
 17/08/15 12:49:44 INFO storage.BlockManagerInfo: Added broadcast_11_piece0 in memory on 192.168.1.116:60495 (size: 4.3 KB, free: 366.1 MB)
 17/08/15 12:49:44 INFO spark.SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:996
-17/08/15 12:49:44 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 5 (MapPartitionsRDD[27] at start at StreamingJob1.java:51)
+17/08/15 12:49:44 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 5 (MapPartitionsRDD[27] at start at com.gss.mainController.StreamingJob1.java:51)
 17/08/15 12:49:44 INFO cluster.YarnScheduler: Adding task set 5.0 with 1 tasks
 17/08/15 12:49:44 INFO scheduler.TaskSetManager: Starting task 30.0 in stage 4.0 (TID 243, quickstart.cloudera, executor 6, partition 30, PROCESS_LOCAL, 6230 bytes)
 17/08/15 12:49:44 INFO scheduler.TaskSetManager: Finished task 20.0 in stage 4.0 (TID 233) in 564 ms on quickstart.cloudera (executor 6) (25/200)
@@ -1248,13 +1248,13 @@
 17/08/15 12:50:07 INFO scheduler.TaskSetManager: Finished task 176.0 in stage 4.0 (TID 389) in 467 ms on quickstart.cloudera (executor 2) (199/200)
 17/08/15 12:50:07 INFO scheduler.TaskSetManager: Finished task 199.0 in stage 4.0 (TID 412) in 66 ms on quickstart.cloudera (executor 3) (200/200)
 17/08/15 12:50:07 INFO cluster.YarnScheduler: Removed TaskSet 4.0, whose tasks have all completed, from pool
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: ResultStage 4 (start at StreamingJob1.java:57) finished in 91.662 s
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Job 2 finished: start at StreamingJob1.java:57, took 104.598194 s
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: ResultStage 4 (start at com.gss.mainController.StreamingJob1.java:57) finished in 91.662 s
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Job 2 finished: start at com.gss.mainController.StreamingJob1.java:57, took 104.598194 s
 17/08/15 12:50:07 INFO storage.BlockManagerInfo: Added broadcast_11_piece0 in memory on quickstart.cloudera:44013 (size: 4.3 KB, free: 366.2 MB)
 17/08/15 12:50:07 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 5.0 (TID 413) in 115 ms on quickstart.cloudera (executor 5) (1/1)
 17/08/15 12:50:07 INFO cluster.YarnScheduler: Removed TaskSet 5.0, whose tasks have all completed, from pool
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: ResultStage 5 (start at StreamingJob1.java:51) finished in 22.710 s
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Job 3 finished: start at StreamingJob1.java:51, took 22.724319 s
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: ResultStage 5 (start at com.gss.mainController.StreamingJob1.java:51) finished in 22.710 s
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Job 3 finished: start at com.gss.mainController.StreamingJob1.java:51, took 22.724319 s
 17/08/15 12:50:07 INFO streaming.StreamExecution: Streaming query made progress: {
   "id" : "92ed3bc0-4671-4817-a8e0-fdb62a0a0773",
   "runId" : "e0a4c67a-a82a-4583-a813-42fb7f226540",
@@ -1287,12 +1287,12 @@
     "description" : "MemorySink"
   }
 }
-17/08/15 12:50:07 INFO spark.SparkContext: Starting job: start at StreamingJob1.java:51
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Got job 4 (start at StreamingJob1.java:51) with 4 output partitions
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Final stage: ResultStage 6 (start at StreamingJob1.java:51)
+17/08/15 12:50:07 INFO spark.SparkContext: Starting job: start at com.gss.mainController.StreamingJob1.java:51
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Got job 4 (start at com.gss.mainController.StreamingJob1.java:51) with 4 output partitions
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Final stage: ResultStage 6 (start at com.gss.mainController.StreamingJob1.java:51)
 17/08/15 12:50:07 INFO scheduler.DAGScheduler: Parents of final stage: List()
 17/08/15 12:50:07 INFO scheduler.DAGScheduler: Missing parents: List()
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Submitting ResultStage 6 (MapPartitionsRDD[27] at start at StreamingJob1.java:51), which has no missing parents
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Submitting ResultStage 6 (MapPartitionsRDD[27] at start at com.gss.mainController.StreamingJob1.java:51), which has no missing parents
 17/08/15 12:50:07 INFO memory.MemoryStore: Block broadcast_12 stored as values in memory (estimated size 7.8 KB, free 364.9 MB)
 17/08/15 12:50:07 INFO streaming.StreamExecution: Streaming query made progress: {
   "id" : "92ed3bc0-4671-4817-a8e0-fdb62a0a0773",
@@ -1326,7 +1326,7 @@
 17/08/15 12:50:07 INFO memory.MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 4.3 KB, free 364.9 MB)
 17/08/15 12:50:07 INFO storage.BlockManagerInfo: Added broadcast_12_piece0 in memory on 192.168.1.116:60495 (size: 4.3 KB, free: 366.2 MB)
 17/08/15 12:50:07 INFO spark.SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:996
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Submitting 4 missing tasks from ResultStage 6 (MapPartitionsRDD[27] at start at StreamingJob1.java:51)
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Submitting 4 missing tasks from ResultStage 6 (MapPartitionsRDD[27] at start at com.gss.mainController.StreamingJob1.java:51)
 17/08/15 12:50:07 INFO cluster.YarnScheduler: Adding task set 6.0 with 4 tasks
 17/08/15 12:50:07 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 6.0 (TID 414, quickstart.cloudera, executor 3, partition 1, PROCESS_LOCAL, 6195 bytes)
 17/08/15 12:50:07 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 6.0 (TID 415, quickstart.cloudera, executor 4, partition 2, PROCESS_LOCAL, 6195 bytes)
@@ -1341,26 +1341,26 @@
 17/08/15 12:50:07 INFO scheduler.TaskSetManager: Finished task 3.0 in stage 6.0 (TID 417) in 264 ms on quickstart.cloudera (executor 2) (3/4)
 17/08/15 12:50:07 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 6.0 (TID 415) in 305 ms on quickstart.cloudera (executor 4) (4/4)
 17/08/15 12:50:07 INFO cluster.YarnScheduler: Removed TaskSet 6.0, whose tasks have all completed, from pool
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: ResultStage 6 (start at StreamingJob1.java:51) finished in 0.309 s
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Job 4 finished: start at StreamingJob1.java:51, took 0.337030 s
-17/08/15 12:50:07 INFO spark.SparkContext: Starting job: start at StreamingJob1.java:51
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Got job 5 (start at StreamingJob1.java:51) with 1 output partitions
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Final stage: ResultStage 7 (start at StreamingJob1.java:51)
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: ResultStage 6 (start at com.gss.mainController.StreamingJob1.java:51) finished in 0.309 s
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Job 4 finished: start at com.gss.mainController.StreamingJob1.java:51, took 0.337030 s
+17/08/15 12:50:07 INFO spark.SparkContext: Starting job: start at com.gss.mainController.StreamingJob1.java:51
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Got job 5 (start at com.gss.mainController.StreamingJob1.java:51) with 1 output partitions
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Final stage: ResultStage 7 (start at com.gss.mainController.StreamingJob1.java:51)
 17/08/15 12:50:07 INFO scheduler.DAGScheduler: Parents of final stage: List()
 17/08/15 12:50:07 INFO scheduler.DAGScheduler: Missing parents: List()
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Submitting ResultStage 7 (MapPartitionsRDD[27] at start at StreamingJob1.java:51), which has no missing parents
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Submitting ResultStage 7 (MapPartitionsRDD[27] at start at com.gss.mainController.StreamingJob1.java:51), which has no missing parents
 17/08/15 12:50:07 INFO memory.MemoryStore: Block broadcast_13 stored as values in memory (estimated size 7.8 KB, free 364.8 MB)
 17/08/15 12:50:07 INFO memory.MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 4.3 KB, free 364.8 MB)
 17/08/15 12:50:07 INFO storage.BlockManagerInfo: Added broadcast_13_piece0 in memory on 192.168.1.116:60495 (size: 4.3 KB, free: 366.2 MB)
 17/08/15 12:50:07 INFO spark.SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:996
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 7 (MapPartitionsRDD[27] at start at StreamingJob1.java:51)
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 7 (MapPartitionsRDD[27] at start at com.gss.mainController.StreamingJob1.java:51)
 17/08/15 12:50:07 INFO cluster.YarnScheduler: Adding task set 7.0 with 1 tasks
 17/08/15 12:50:07 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 7.0 (TID 418, quickstart.cloudera, executor 1, partition 5, PROCESS_LOCAL, 6195 bytes)
 17/08/15 12:50:07 INFO storage.BlockManagerInfo: Added broadcast_13_piece0 in memory on quickstart.cloudera:54741 (size: 4.3 KB, free: 366.2 MB)
 17/08/15 12:50:07 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 7.0 (TID 418) in 33 ms on quickstart.cloudera (executor 1) (1/1)
 17/08/15 12:50:07 INFO cluster.YarnScheduler: Removed TaskSet 7.0, whose tasks have all completed, from pool
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: ResultStage 7 (start at StreamingJob1.java:51) finished in 0.033 s
-17/08/15 12:50:07 INFO scheduler.DAGScheduler: Job 5 finished: start at StreamingJob1.java:51, took 0.041956 s
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: ResultStage 7 (start at com.gss.mainController.StreamingJob1.java:51) finished in 0.033 s
+17/08/15 12:50:07 INFO scheduler.DAGScheduler: Job 5 finished: start at com.gss.mainController.StreamingJob1.java:51, took 0.041956 s
 17/08/15 12:50:07 INFO streaming.StreamExecution: Streaming query made progress: {
   "id" : "aa9574bb-6937-4df4-9009-ad661761fb86",
   "runId" : "e26c1f36-3fee-43a5-ae9c-76b1ac313411",

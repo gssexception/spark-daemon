@@ -1,4 +1,9 @@
+package com.gss.mainController ;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class SparkDaemonService {
     private StreamingJob1 job1;
     private ParquetJob1   job2;
@@ -13,7 +18,9 @@ public class SparkDaemonService {
         return instance ;
     }
 
+    @Autowired
     void init(){
+
         job1  = new StreamingJob1();
         job2 = new ParquetJob1();
 

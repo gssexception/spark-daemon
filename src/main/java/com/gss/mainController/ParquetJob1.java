@@ -1,5 +1,8 @@
+package com.gss.mainController;
+
 import org.apache.log4j.Logger;
 import org.apache.spark.sql.Dataset;
+
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
@@ -31,6 +34,8 @@ public class ParquetJob1 extends Thread {
                 .builder()
                 .appName("sparkApp")
                 .config("spark.master", "yarn")
+                .config("num-executors","6")
+                .config("spark.executor.memory", "1g")
                 .getOrCreate();
 
         // spark.read().load("/user/cloudera/parq").createOrReplaceTempView("tmp");
@@ -40,13 +45,11 @@ public class ParquetJob1 extends Thread {
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
-        Row[] dataRows = data.collect();
-        for (Row row : dataRows) {
-            System.out.println("Row : "+row);
-            for (int i = 0; i < row.length(); i++) {
-                System.out.println("Row Data : "+row.get(i));
-            }
-        }
+
+        Dataset<Row> fDS = data.select("mycount");
+
+        fDS.show();
+
         logger.info(data.  toString());
         logger.info("**************** job2 ********************");
         logger.info("**************** job2 ********************");
